@@ -1,0 +1,17 @@
+{
+  "name": "bitcointracker",
+  "version": "0.0.1",
+  "private": false,
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "body-parser": "latest",
+    "express": "latest",
+    "mongoose": "latest"
+  },
+  "devDependencies": {
+    "nodemon": "latest"
+  }
+}

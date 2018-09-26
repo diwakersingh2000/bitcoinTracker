@@ -1,0 +1,98 @@
+<style>
+#container {
+  min-width: 310px;
+  max-width: 800px;
+  height: 400px;
+  margin: 100px auto 0;
+}
+</style>
+<header class="masthead text-center text-white">
+  <div class="masthead-content">
+    <div class="container">
+      <h1 class="masthead-heading mb-0">Bitcoin Price Tracker</h1>
+    </div>
+  </div>
+  <div class="bg-circle-1 bg-circle"></div>
+  <div class="bg-circle-2 bg-circle"></div>
+  <div class="bg-circle-3 bg-circle"></div>
+  <div class="bg-circle-4 bg-circle"></div>
+</header>
+
+<section>
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-12">
+        <div class="p-5 text-center">
+          <div class="btn-group">
+            <button type="button" class="btn btn-primary" ng-click="main.sixHours()">6 Hours</button>
+            <button type="button" class="btn btn-primary" ng-click="main.twelveHours()">12 Hours</button>
+            <button type="button" class="btn btn-primary" ng-click="main.oneDay()">24 Hours</button>
+            <button type="button" class="btn btn-primary" ng-click="main.oneWeek()">1 Week</button>
+            <button type="button" class="btn btn-primary" ng-click="main.oneMonth()">1 Month</button>
+            <button type="button" class="btn btn-primary" ng-click="main.oneYear()">1 Year</button>
+          </div>
+          <h6>Rate (JSON response): </h6>
+          <p>{{main.data.bpi}}</p>
+          <div id="container"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  Highcharts.chart('container', {
+
+      title: {
+    text: 'Bitcoin currency rate'
+  },
+
+yAxis: {
+  title: {
+    text: 'Number of Employees'
+  }
+},
+legend: {
+  layout: 'vertical',
+  align: 'right',
+  verticalAlign: 'middle'
+},
+
+plotOptions: {
+  series: {
+    label: {
+      connectorAllowed: false
+    },
+    pointStart: 2011
+  }
+},
+
+series: [{
+  name: 'USD',
+  data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]
+}, {
+    name: 'GBP',
+    data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434]
+  }, {
+    name: 'EUR',
+    data: [11744, 17722, 16005, 19771, 20185, 24377, 32147, 39387]
+  }
+],
+
+responsive: {
+  rules: [{
+    condition: {
+      maxWidth: 500
+    },
+    chartOptions: {
+      legend: {
+        layout: 'horizontal',
+        align: 'center',
+        verticalAlign: 'bottom'
+      }
+    }
+  }]
+}
+
+});
+</script>

@@ -1,0 +1,1 @@
+var myApp=angular.module('bitcointracker',['ngRoute','ngCookies','chart.js'])
